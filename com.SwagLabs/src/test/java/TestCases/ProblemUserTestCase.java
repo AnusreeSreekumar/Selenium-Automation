@@ -7,55 +7,44 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import PageObjects.CartPage;
-import PageObjects.CheckoutPage;
-import PageObjects.LoginPageObjects;
-import PageObjects.PersonalInfo;
+import PageObjects.PrdtDetailsPage;
 import PageObjects.ProductsPage;
+import PageObjects.LoginPageObjects;
 
 public class ProblemUserTestCase {
-	
-public static WebDriver driver;
-	
+
+	public static WebDriver driver;
+
 	@BeforeSuite
 	public void launchbrowser() throws InterruptedException {
 		driver = new ChromeDriver();
 		driver.get("https://www.saucedemo.com/");
 		Thread.sleep(3000);
 	}
-	
+
 	@Test
 	public void loginuser() {
 		PageFactory.initElements(driver, LoginPageObjects.class);
-		LoginPageObjects.username.sendKeys("standard_user");
+		LoginPageObjects.username.sendKeys("problem_user");
 		LoginPageObjects.password.sendKeys("secret_sauce");
 		LoginPageObjects.submit.click();
 	}
-	
+
 	@Test
 	public void purchaseorder() {
 		PageFactory.initElements(driver, ProductsPage.class);
-		PageFactory.initElements(driver, CartPage.class);
-		PageFactory.initElements(driver, PersonalInfo.class);
-		PageFactory.initElements(driver, CheckoutPage.class);
-		
+		PageFactory.initElements(driver, PrdtDetailsPage.class);
+
+		String prdtname = ProductsPage.backpack.getText();
 		ProductsPage.backpack.click();
-		ProductsPage.backpack_addtocart.click();
-		//ProductsPage.cart.click();
-		CartPage.checkoutbtn.click();
-		PersonalInfo.firstname.sendKeys("testuser1");
-		PersonalInfo.lastname.sendKeys("user123");
-		PersonalInfo.postalcode.sendKeys("562348");
-		PersonalInfo.contbtn.click();
-		CheckoutPage.finishbtn.click();
-		
-		System.out.println(CheckoutPage.message1.getText());
-		System.out.println(CheckoutPage.message2.getText());
+		String prdt = PrdtDetailsPage.prdt_name.getText();
+		if (prdt != prdtname) {
+			System.out.println("This is a Problem User");
+		}
 	}
-	
+
 	@AfterSuite
 	public void closebrowser() {
 		driver.quit();
 	}
-
 }

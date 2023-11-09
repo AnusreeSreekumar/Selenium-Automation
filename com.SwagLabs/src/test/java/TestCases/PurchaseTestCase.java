@@ -42,8 +42,8 @@ public class PurchaseTestCase {
 		PageFactory.initElements(driver, CheckoutPage.class);
 		
 		ProductsPage.backpack.click();
-		PrdtDetailsPage.backpack_addtocart.click();
-		PrdtDetailsPage.cart.click();
+		PrdtDetailsPage.prdt_name.click();
+		PrdtDetailsPage.prdt_addtocart.click();
 		CartPage.checkoutbtn.click();
 		PersonalInfo.firstname.sendKeys("testuser1");
 		PersonalInfo.lastname.sendKeys("user123");

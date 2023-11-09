@@ -28,6 +28,7 @@ public class LoginTestCase {
 		LoginPageObjects.submit.click();
 	}
 	
+	@Test
 	public void lockeduser() {
 		LoginPageObjects.username.sendKeys("locked_out_user");
 		LoginPageObjects.password.sendKeys("secret_sauce");

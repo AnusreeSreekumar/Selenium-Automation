@@ -2,28 +2,28 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-02T14:14:11 IST" name="Default suite" finished-at="2023-11-02T14:14:14 IST" duration-ms="2221">
+  <suite started-at="2023-11-06T13:42:21 IST" name="Default suite" finished-at="2023-11-06T13:42:22 IST" duration-ms="876">
     <groups>
     </groups>
-    <test started-at="2023-11-02T14:14:11 IST" name="Default test" finished-at="2023-11-02T14:14:14 IST" duration-ms="2221">
-      <class name="TestCases.PurchaseTestCase">
-        <test-method is-config="true" signature="launchbrowser()[pri:0, instance:TestCases.PurchaseTestCase@15043a2f]" started-at="2023-11-02T14:13:57 IST" name="launchbrowser" finished-at="2023-11-02T14:14:11 IST" duration-ms="14649" status="PASS">
+    <test started-at="2023-11-06T13:42:21 IST" name="Default test" finished-at="2023-11-06T13:42:22 IST" duration-ms="876">
+      <class name="TestCases.ProblemUserTestCase">
+        <test-method is-config="true" signature="launchbrowser()[pri:0, instance:TestCases.ProblemUserTestCase@2cb4893b]" started-at="2023-11-06T13:42:10 IST" name="launchbrowser" finished-at="2023-11-06T13:42:21 IST" duration-ms="11429" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchbrowser -->
-        <test-method signature="loginuser()[pri:0, instance:TestCases.PurchaseTestCase@15043a2f]" started-at="2023-11-02T14:14:12 IST" name="loginuser" finished-at="2023-11-02T14:14:12 IST" duration-ms="803" status="PASS">
+        <test-method signature="loginuser()[pri:0, instance:TestCases.ProblemUserTestCase@2cb4893b]" started-at="2023-11-06T13:42:22 IST" name="loginuser" finished-at="2023-11-06T13:42:22 IST" duration-ms="520" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginuser -->
-        <test-method signature="purchaseorder()[pri:0, instance:TestCases.PurchaseTestCase@15043a2f]" started-at="2023-11-02T14:14:12 IST" name="purchaseorder" finished-at="2023-11-02T14:14:14 IST" duration-ms="1310" status="PASS">
+        <test-method signature="purchaseorder()[pri:0, instance:TestCases.ProblemUserTestCase@2cb4893b]" started-at="2023-11-06T13:42:22 IST" name="purchaseorder" finished-at="2023-11-06T13:42:22 IST" duration-ms="257" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- purchaseorder -->
-        <test-method is-config="true" signature="closebrowser()[pri:0, instance:TestCases.PurchaseTestCase@15043a2f]" started-at="2023-11-02T14:14:14 IST" name="closebrowser" finished-at="2023-11-02T14:14:14 IST" duration-ms="401" status="PASS">
+        <test-method is-config="true" signature="closebrowser()[pri:0, instance:TestCases.ProblemUserTestCase@2cb4893b]" started-at="2023-11-06T13:42:23 IST" name="closebrowser" finished-at="2023-11-06T13:42:23 IST" duration-ms="454" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closebrowser -->
-      </class> <!-- TestCases.PurchaseTestCase -->
+      </class> <!-- TestCases.ProblemUserTestCase -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
