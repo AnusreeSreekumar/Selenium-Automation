@@ -40,6 +40,7 @@ public class PurchaseTestCase {
 		PageFactory.initElements(driver, CartPage.class);
 		PageFactory.initElements(driver, PersonalInfo.class);
 		PageFactory.initElements(driver, CheckoutPage.class);
+		//yuyiyuyu
 		
 		ProductsPage.backpack.click();
 		PrdtDetailsPage.prdt_name.click();
