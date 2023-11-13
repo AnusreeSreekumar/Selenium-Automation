@@ -2,6 +2,7 @@ package TestCases;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,29 +32,63 @@ public class StandardUserTestCase {
 
 	public static WebDriver driver;
 	String[][] data = null;
+	String[][] testdata = null;
 	boolean itemFound = false;
 
 	public String[][] getlogindata() throws IOException {
-		FileInputStream excel = new FileInputStream("E:\\Anusree\\Automation\\Selenium\\Java\\Test Data\\SwagLabs\\InputData.xls");
+		ClassLoader classLoader = getClass().getClassLoader();
+		InputStream excel = classLoader.getResourceAsStream("TestData/InputData.xls");
+//		FileInputStream excel = new FileInputStream("TestData.InputData.xls");
+		
+		HSSFWorkbook workbook = new HSSFWorkbook(excel);
+		HSSFSheet sheet = workbook.getSheetAt(0);
+		int rowCount=sheet.getLastRowNum()-sheet.getFirstRowNum();
+		int cellcount=sheet.getRow(1).getLastCellNum();
+		String logindata[][] = new String[rowCount][cellcount];
+		for (int i = 0; i < rowCount; i++) {
+	        for (int j = 0; j < cellcount; j++) {
+	        	logindata[i][j] = sheet.getRow(i + 1).getCell(j).getStringCellValue();
+	        }
+	    }
+	    return logindata;
+	}
+	
+	public String[][] getpurchasedata() throws IOException {
+		ClassLoader classLoader = getClass().getClassLoader();
+		InputStream excel = classLoader.getResourceAsStream("TestData/InputData.xls");
+//		FileInputStream excel = new FileInputStream("TestData.InputData.xls");
 		
 		HSSFWorkbook workbook = new HSSFWorkbook(excel);
 		HSSFSheet sheet = workbook.getSheetAt(1);
 		int rowCount=sheet.getLastRowNum()-sheet.getFirstRowNum();
 		int cellcount=sheet.getRow(1).getLastCellNum();
-		String testdata[][] = new String[rowCount][cellcount];
+		String purchasedata[][] = new String[rowCount][cellcount];
 		for (int i = 0; i < rowCount; i++) {
 	        for (int j = 0; j < cellcount; j++) {
-	            testdata[i][j] = sheet.getRow(i + 1).getCell(j).getStringCellValue();
+	        	purchasedata[i][j] = sheet.getRow(i + 1).getCell(j).getStringCellValue();
 	        }
 	    }
-	    return testdata;
+		
+		for (int i = 0; i < rowCount; i++) {
+	        for (int j = 0; j < cellcount; j++) {
+	        	System.out.println(purchasedata[i][j] + "\t");
+	        }
+	    }
+	    return purchasedata;
 	}
 	
-	@DataProvider(name="inputdata")
+	@DataProvider(name="logindata")
 	public String[][] LoginDataProvider() throws IOException{
 		
 		data = getlogindata();
 		return data;
+	}
+	
+	@DataProvider(name="inputdata")
+	public String[][] TestDataProvider() throws IOException{
+		
+		testdata = getpurchasedata();
+		return testdata;
 	}
 	
 	@BeforeTest
@@ -69,12 +104,18 @@ public class StandardUserTestCase {
 		PageFactory.initElements(driver, CheckoutPage.class);
 	}
 
-	@Test(dataProvider="inputdata")
-	public void loginuser(String uname, String pword, String prdtname, String fname, String lname, String pstlcode) throws InterruptedException {
+	@Test(dataProvider="logindata")
+	public void loginuser(String uname, String pword) throws InterruptedException {
 		LoginPageObjects.username.sendKeys(uname);
 		LoginPageObjects.password.sendKeys(pword);
 		LoginPageObjects.submit.click();
+	
+	}
+	
+	@Test(dataProvider="inputdata")
+	public void purchaseproduct(String prdtname, String fname, String lname, String pstlcode) {
 		
+		System.out.println(prdtname);
 		for(WebElement itemlist : ProductsPage.itemlists){
 			String itemText = itemlist.getText();
 			if (prdtname.equals(itemText)) {
@@ -105,12 +146,16 @@ public class StandardUserTestCase {
 		System.out.println(CheckoutPage.message1.getText());
 		System.out.println(CheckoutPage.message2.getText());
 		
-//		CheckoutPage.homepage.click();
+		CheckoutPage.homepage.click();
 	}
 
 	@AfterTest
 	public void closebrowser() {
-		driver.quit();
+		 	driver.close();
+
+		    // Reset WebDriver state
+		    driver.quit();
+		    driver = null;
 	}
 
 }
