@@ -1,15 +1,17 @@
 package PageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ProductsPage {
 	
-	@FindBy(xpath = "//div[@class='inventory_item_name ' and text()='Sauce Labs Backpack']")
-	public static WebElement backpack;
+	@FindBy(xpath = "//div[@class='inventory_item_name ']")
+	public static List<WebElement> itemlists;
 	
-	@FindBy(id="add-to-cart-sauce-labs-backpack")
-	public static WebElement backpack_addtocart;
+	@FindBy(xpath = "//button[@class='btn btn_primary btn_small btn_inventory']")
+	public static WebElement addtocart;
 	
 	@FindBy(xpath = "//div[@class='inventory_item_name ' and text()='Sauce Labs Bolt T-Shirt']")
 	public static WebElement tshirt;

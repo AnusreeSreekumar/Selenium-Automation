@@ -33,27 +33,7 @@ public class PurchaseTestCase {
 		LoginPageObjects.submit.click();
 	}
 	
-	@Test
-	public void purchaseorder() {
-		PageFactory.initElements(driver, ProductsPage.class);
-		PageFactory.initElements(driver, PrdtDetailsPage.class);
-		PageFactory.initElements(driver, CartPage.class);
-		PageFactory.initElements(driver, PersonalInfo.class);
-		PageFactory.initElements(driver, CheckoutPage.class);
-		
-		ProductsPage.backpack.click();
-		PrdtDetailsPage.prdt_name.click();
-		PrdtDetailsPage.prdt_addtocart.click();
-		CartPage.checkoutbtn.click();
-		PersonalInfo.firstname.sendKeys("testuser1");
-		PersonalInfo.lastname.sendKeys("user123");
-		PersonalInfo.postalcode.sendKeys("562348");
-		PersonalInfo.contbtn.click();
-		CheckoutPage.finishbtn.click();
-		
-		System.out.println(CheckoutPage.message1.getText());
-		System.out.println(CheckoutPage.message2.getText());
-	}
+	
 	
 	@AfterSuite
 	public void closebrowser() {
