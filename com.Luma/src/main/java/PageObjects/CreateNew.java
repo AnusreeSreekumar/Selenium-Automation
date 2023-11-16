@@ -20,6 +20,16 @@ public class CreateNew {
 	@FindBy(id="password-confirmation")
 	public static WebElement paswrd_confirm;
 	
-	@FindBy(id="//button[@type='submit' and @title='Create an Account']")
+	@FindBy(id="password-error")
+	public static WebElement weak_paswrd;
+	
+	@FindBy(xpath="//button[@title='Create an Account']")
 	public static WebElement submit;
+	
+	@FindBy(xpath="//*[contains(text(),'Thank you for registering with Main Website Store.')]")
+	public static WebElement confirmation;
+	
+	@FindBy(xpath="//*[contains(text(),'There is already an account with this email')]")
+	public static WebElement existinguser;
+	
 }

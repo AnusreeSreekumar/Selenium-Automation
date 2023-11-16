@@ -15,10 +15,44 @@ public class HomePage {
 	public static WebElement search_text;
 	
 	@FindBy(id="ui-id-3")
-	public static WebElement new_link;
+	public static WebElement link_new;
 	
 	@FindBy(id="ui-id-4")
-	public static WebElement women_link;
+	public static WebElement link_women;
 	
+	@FindBy(id="ui-id-5")
+	public static WebElement link_men;
 	
+	@FindBy(id="ui-id-6")
+	public static WebElement link_gear;
+	
+	@FindBy(id="ui-id-7")
+	public static WebElement link_training;
+	
+	@FindBy(id="ui-id-8")
+	public static WebElement link_sale;
+	
+	@FindBy(xpath="//a[@class='block-promo home-main']")
+	public static WebElement image_yogacolxn;
+	
+	@FindBy(xpath="//span[contains(text(),'New Yoga')]")
+	public static WebElement link_newyoga;
+	
+	@FindBy(xpath="//a[@class='block-promo home-pants']")
+	public static WebElement image_lumapants;
+	
+	@FindBy(xpath="//strong[contains(text(), '20% OFF')]")
+	public static WebElement link_Offtext;
+	
+	@FindBy(xpath="//span[contains(text(), 'Buy 3 Luma')]")
+	public static WebElement link_teestext;
+	
+	@FindBy(xpath="//span[contains(text(), 'Shop Erin')]")
+	public static WebElement link_Erinrecommends;
+	
+	@FindBy(xpath="//strong[contains(text(), 'Science meets performance')]")
+	public static WebElement link_sciencemeets;
+	
+	@FindBy(xpath="//a[@class='block-promo home-eco']")
+	public static WebElement link_ecofriendly;
 }
