@@ -13,14 +13,17 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import CommonUtils.ExcelRead;
+import CommonUtils.ExcelRead_Regndtls;
+import CommonUtils.LaunchBrowser;
 import PageObjects.CreateNew;
 import PageObjects.HomePage;
+import PageObjects.MyAccount;
 
 public class CreateResgistration {
 	
-	public static WebDriver driver;
-	private ExcelRead inputexcel = new ExcelRead();
+	private static WebDriver gdriver;
+	private LaunchBrowser browser = new LaunchBrowser();
+	private ExcelRead_Regndtls inputexcel = new ExcelRead_Regndtls();
 	
 	@DataProvider(name = "regndata")
 	public String[][] newuser_regn() throws IOException {
@@ -30,13 +33,11 @@ public class CreateResgistration {
 	}
 	
 	@BeforeTest
-	public void launchbrowser() {
-		
-		driver = new ChromeDriver();
-		driver.get("https://magento.softwaretestingboard.com/");
-		driver.manage().window().maximize();
-		PageFactory.initElements(driver, HomePage.class);
-		PageFactory.initElements(driver, CreateNew.class);
+	public void setup() {
+		gdriver= browser.launchbrowser();
+		PageFactory.initElements(gdriver, HomePage.class);
+		PageFactory.initElements(gdriver, CreateNew.class);
+		PageFactory.initElements(gdriver, MyAccount.class);
 	}
 	
 	@Test(dataProvider="regndata")
@@ -47,7 +48,7 @@ public class CreateResgistration {
 		CreateNew.lastname.sendKeys(lname);
 		CreateNew.email.sendKeys(email);
 		CreateNew.paswrd.sendKeys(pword);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(gdriver, Duration.ofSeconds(20));
 		if(CreateNew.weak_paswrd.isDisplayed()) {			
 			String message1 = CreateNew.weak_paswrd.getText();
 			System.out.println(message1);
@@ -61,11 +62,11 @@ public class CreateResgistration {
 		        System.out.println(message2);
 		    } catch (TimeoutException e) {
 		        // If the existing user element is not found, proceed with the next steps
-		        wait.until(ExpectedConditions.visibilityOf(CreateNew.confirmation));
-		        String message3 = CreateNew.confirmation.getText();
+		        wait.until(ExpectedConditions.visibilityOf(MyAccount.confirmation));
+		        String message3 = MyAccount.confirmation.getText();
 		        System.out.println(message3);
-		        CreateNew.user_dropdown.click();
-		        CreateNew.signout.click();
+		        MyAccount.user_dropdown.click();
+		        MyAccount.signout.click();
 		    }
 		}
 		
