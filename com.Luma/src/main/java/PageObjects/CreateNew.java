@@ -26,16 +26,7 @@ public class CreateNew {
 	@FindBy(xpath="//button[@title='Create an Account']")
 	public static WebElement submit;
 	
-	@FindBy(xpath="//*[contains(text(),'Thank you for registering with Main Website Store.')]")
-	public static WebElement confirmation;
-	
 	@FindBy(xpath="//*[contains(text(),'There is already an account with this email')]")
 	public static WebElement existinguser;
-	
-	@FindBy(xpath="/html/body/div[2]/header/div[1]/div/ul/li[2]/span/button/span")
-	public static WebElement user_dropdown;
-	
-	@FindBy(xpath="/html/body/div[2]/header/div[1]/div/ul/li[2]/div/ul/li[3]/a")
-	public static WebElement signout;
 	
 }
