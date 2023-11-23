@@ -16,4 +16,19 @@ public class ProductDetails {
 	@FindBy(xpath="//div[@class='swatch-option color']")
 	public static List<WebElement> productColor;
 	
+	@FindBy(id="qty")
+	public static WebElement quantity;
+	
+	@FindBy(id="product-addtocart-button")
+	public static WebElement addtocart;
+	
+	@FindBy(xpath="//span[@class='counter-number']")
+	public static WebElement counter;
+	
+	@FindBy(xpath="//a[@class='action showcart']")
+	public static WebElement showcart;
+	
+	@FindBy(id="top-cart-btn-checkout")
+	public static WebElement checkoutproceed;
+	
 }

@@ -1,5 +1,7 @@
 package PageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -37,15 +39,9 @@ public class HomePage {
 	
 	@FindBy(xpath="//a[@class='block-promo home-main']")
 	public static WebElement image_yogacolxn;
-	
-	@FindBy(xpath="//span[contains(text(),'New Yoga')]")
-	public static WebElement link_newyoga;
-	
-	@FindBy(xpath="//a[@class='block-promo home-pants']")
-	public static WebElement image_lumapants;
-	
+		
 	@FindBy(xpath="//strong[contains(text(), '20% OFF')]")
-	public static WebElement link_Offtext;
+	public static WebElement Offerlink_luma;
 	
 	@FindBy(xpath="//span[contains(text(), 'Buy 3 Luma')]")
 	public static WebElement link_teestext;
@@ -57,5 +53,9 @@ public class HomePage {
 	public static WebElement link_sciencemeets;
 	
 	@FindBy(xpath="//a[@class='block-promo home-eco']")
-	public static WebElement link_ecofriendly;
+	public static WebElement image_ecofriendly;
+	
+	@FindBy(xpath="//a[@class='product-item-link']")
+	public static List<WebElement> prdt_name;
+		
 }
