@@ -20,11 +20,11 @@ public class ProductDetails {
 	public static WebElement quantity;
 	
 	@FindBy(id="product-addtocart-button")
-	public static WebElement addtocart;
+	public static WebElement addtocart;	
 	
-	@FindBy(xpath="//span[@class='counter-number']")
-	public static WebElement counter;
-	
+	@FindBy(xpath="//div[contains(text(),'You added Radiant Tee to your')]")
+	public static WebElement addedtocart;
+		
 	@FindBy(xpath="//a[@class='action showcart']")
 	public static WebElement showcart;
 	
