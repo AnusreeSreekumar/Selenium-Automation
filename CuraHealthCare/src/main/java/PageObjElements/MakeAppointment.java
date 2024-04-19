@@ -14,12 +14,9 @@ public class MakeAppointment {
 	@FindBy(id = "chk_hospotal_readmission")
 	public static WebElement readmsn_chkbox;
 	
-	@FindBy(id = "radio_program_medicare")
-	public static WebElement mediprogram;
-	
-	@FindBy(id = "radio_program_medicaid")
-	public static WebElement aidprogram;
-	
+	@FindBy(xpath = "//label[@class='radio-inline']")
+	public static List<WebElement> prgm_radio_btn;
+		
 	@FindBy(id = "txt_visit_date")
 	public static WebElement date;
 	
@@ -37,5 +34,5 @@ public class MakeAppointment {
 	
 	@FindBy(id = "btn-book-appointment")
 	public static WebElement booked;
-
+	
 }

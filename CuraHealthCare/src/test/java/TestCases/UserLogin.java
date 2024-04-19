@@ -10,7 +10,7 @@ public class UserLogin extends CommonUtils {
 	private static final boolean True = false;
 
 	@Test(singleThreaded = True)
-	public static void LoginPageElements() throws InterruptedException{	
+	public static void Login() throws InterruptedException{	
 		
 		PageFactory.initElements(driver, LoginPage.class);
 		

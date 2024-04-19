@@ -17,6 +17,12 @@ public class LoginPage {
 	@FindBy(id = "btn-login")
 	public static WebElement loginbtn;
 	
+	@FindBy(id = "menu-toggle")
+	public static WebElement menu;
+	
+	@FindBy(xpath = "//a[normalize-space()='Logout']")
+	public static WebElement logoutbtn;
+	
 	}
 	
 
