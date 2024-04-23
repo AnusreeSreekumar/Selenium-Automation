@@ -20,6 +20,9 @@ public class AppntmntBooking extends DriverSetup {
 	
 	private ExcelRead inputexcel = new ExcelRead();
 	
+	/* The excelread method is called here and as it is returning data for the process happening in test class I have given
+	this method with a data provider annotation in TestNG */
+	
 	@DataProvider(name = "inputdata")
 	public Object[][] TestDataProvider() throws IOException {
 
@@ -27,6 +30,8 @@ public class AppntmntBooking extends DriverSetup {
 		return testdata;
 	}
 	
+	/* The test class is receiving data from dataprovider class and performing below actions */
+		
 	@Test(dataProvider = "inputdata")
 	public static void appointmentbooking(String facility, String facilitytxt,  String readmsn, String prgm, String monthyear, String date) throws InterruptedException {
 		
