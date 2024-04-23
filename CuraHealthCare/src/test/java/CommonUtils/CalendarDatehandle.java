@@ -1,4 +1,4 @@
-package TestCases;
+package CommonUtils;
 
 import org.openqa.selenium.WebElement;
 
@@ -6,14 +6,11 @@ import PageObjElements.MakeAppointment;
 
 public class CalendarDatehandle {
 	
-	public static void dateshandle() {
-		
-		String target_mnthyr = "January 2025";
-		String target_date = "2";
+	public static void dateshandle(String monthyear, String date) {
 		
 		while(true) {
-			String monthyear = MakeAppointment.datetitle.getText();
-			if(monthyear.equals(target_mnthyr))
+			String monthyeartxt = MakeAppointment.datetitle.getText();
+			if(monthyeartxt.equals(monthyear))
 				break;
 			else
 				MakeAppointment.nextbtn.click();
@@ -21,8 +18,8 @@ public class CalendarDatehandle {
 			
 		for(WebElement ele:MakeAppointment.alldates) {
 			
-			String date = ele.getText();
-			if(date.equals(target_date)) {
+			String datetext = ele.getText();
+			if(datetext.equals(date)) {
 				
 				ele.click();
 				break;

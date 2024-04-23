@@ -2,6 +2,11 @@ package TestCases;
 
 import org.testng.annotations.Test;
 
+import CommonUtils.CalendarDatehandle;
+import CommonUtils.DriverSetup;
+import CommonUtils.PageScreenshots;
+import CommonUtils.RadioButtonhandle;
+
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -13,7 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import PageObjElements.MakeAppointment;
 
-public class AppntmntBookingHardcoded extends CommonUtils {
+public class AppntmntBookingHardcoded extends DriverSetup {
 		
 	@Test
 	public static void BookingAppointment() throws InterruptedException {
@@ -34,17 +39,17 @@ public class AppntmntBookingHardcoded extends CommonUtils {
 			MakeAppointment.readmsn_chkbox.click();
 			String text = "readmsn";
 			
-			String pgmname = RadioButtonhandle.radiobtn_setup();
+//			String pgmname = RadioButtonhandle.radiobtn_setup();
 			
 			MakeAppointment.date.click();
 			wait.until(ExpectedConditions.visibilityOf(MakeAppointment.datetitle));
 			
-			CalendarDatehandle.dateshandle();
+//			CalendarDatehandle.dateshandle();
 			
-			String commentText = "Booking a " + pgmname;
-			MakeAppointment.comment.sendKeys(commentText);
+//			String commentText = "Booking a " + pgmname;
+//			MakeAppointment.comment.sendKeys(commentText);
 			MakeAppointment.booked.click();
-			filename = text_facl + "_" + pgmname + "_" + text;
+//			filename = text_facl + "_" + pgmname + "_" + text;
 			PageScreenshots.takeScreenshot(filename);
 			
 			UserLogout.Logout();

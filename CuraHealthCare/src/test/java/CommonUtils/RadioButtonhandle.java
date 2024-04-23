@@ -1,27 +1,25 @@
-package TestCases;
+package CommonUtils;
 
 import org.openqa.selenium.WebElement;
 
 import PageObjElements.MakeAppointment;
 
-public class RadioButtonhandle extends CommonUtils {
+public class RadioButtonhandle extends DriverSetup {
 		
-	public static String radiobtn_setup() {
+	public static String radiobtn_setup(String prgm) {
 		
-		String target_prgm = "Medicare";
-	
 		for(WebElement ele:MakeAppointment.prgm_radio_btn) {
 			String pgm = ele.getText();
 			if(ele.isSelected()) {
-				if(pgm.equals(target_prgm)) {
+				if(pgm.equals(prgm)) {
 					break;
 				}
 			}
-			else if(pgm.equals(target_prgm)) {
+			else if(pgm.equals(prgm)) {
 				ele.click();
 				break;
 			}
 		}
-		return target_prgm;
+		return prgm;
 	}
 }
